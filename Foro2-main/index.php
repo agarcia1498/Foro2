@@ -1,1 +1,1 @@
-<?php require_once ("Matricula.html") ?>
+<?php require_once ("Registro.html") ?>

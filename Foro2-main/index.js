@@ -6,14 +6,14 @@ const tasksContainer = document.getElementById('task-containers');
 let editStatus = false;
 let id = '';
 
-const GuardarAlumno = (ide, name, lastname, years, adress, phone) =>
+const GuardarAlumno = (ide, name, carrera, years, mail, cell) =>
     db.collection('Foro2').doc().set({
         ide,
         name,
-        lastname, 
+        carrera, 
         years,
-        adress,
-        phone,
+        mail,
+        cell,
     });
 
 const ObtenerAlumno = () => db.collection('Foro2').get();
@@ -38,8 +38,8 @@ window.addEventListener('DOMContentLoaded', async (e) =>{
                         <td>Cuenta</td><td>Nombre</td><td>Carrera</td><td>Edad</td><td>Correo</td><td>Celular</td>
                     </tr>
                     <tr>
-                        <td>${alum.ide}</td><td>${alum.name}</td><td>${alum.lastname}</td>
-                        <td>${alum.years}</td><td>${alum.adress}</td><td>${alum.phone}</td>
+                        <td>${alum.ide}</td><td>${alum.name}</td><td>${alum.carrera}</td>
+                        <td>${alum.years}</td><td>${alum.mail}</td><td>${alum.cell}</td>
                         
                         <td><button class="btn btn-primary btn-delete" data-id="${alum.id}">Eliminar</button>
                         <button class="btn btn-primary btn-edit" data-id="${alum.id}">Editar</button>
@@ -64,10 +64,10 @@ window.addEventListener('DOMContentLoaded', async (e) =>{
 
                     taskform['task-id'].value =  al.ide;
                     taskform['task-name'].value =  al.name;
-                    taskform['task-lastname'].value =  al.lastname;
+                    taskform['task-carrera'].value =  al.carrera;
                     taskform['task-years'].value =  al.years;
-                    taskform['task-adress'].value =  al.adress;
-                    taskform['task-phone'].value =  al.phone;
+                    taskform['task-mail'].value =  al.mail;
+                    taskform['task-cell'].value =  al.cell;
                  
 
 
@@ -85,24 +85,24 @@ taskform.addEventListener('submit', async (e) => {
 
     const ide = taskform['task-id'];
     const name = taskform['task-name'];
-    const lastname = taskform['task-lastname'];
+    const carrera = taskform['task-carrera'];
     const years = taskform['task-years'];
-    const adress = taskform['task-adress'];
-    const phone = taskform['task-phone'];
+    const mail = taskform['task-mail'];
+    const cell = taskform['task-cell'];
  
 
 
 
 
     if (!editStatus){
-        await GuardarAlumno(ide.value, name.value, lastname.value, years.value, adress.value, phone.value);
+        await GuardarAlumno(ide.value, name.value, carrera.value, years.value, mail.value, cell.value);
     }else{
         await ActulalizarTodo(id, {
             ide: ide.value,
             name: name.value,
-            lastname: lastname.value,
+            carrera: carrera.value,
             years: years.value,
-            phone: phone.value,
+            cell: cell.value,
             
 
         });

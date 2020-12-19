@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', async (e) =>{
             tasksContainer.innerHTML += `<div class="card card-body mt2m border primary">
                 <table>
                     <tr>
-                        <td>Cuenta</td><td>Nombre</td><td>Apellido</td><td>Edad</td><td>Direccion</td><td>Telefono</td><td>Eliminar-----Editar</td>
+                        <td>Cuenta</td><td>Nombre</td><td>Carrera</td><td>Edad</td><td>Correo</td><td>Celular</td>
                     </tr>
                     <tr>
                         <td>${alum.ide}</td><td>${alum.name}</td><td>${alum.lastname}</td>
